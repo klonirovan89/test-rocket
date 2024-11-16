@@ -12,7 +12,7 @@ export const Checkbox = ({name, label, id, isChecked, onChange}: CheckboxProps) 
 
     return (
         <div>
-            <input type="checkbox" name={name} id={`${name}-${id}`} onChange={onChange} defaultChecked={isChecked}/>
+            <input type="checkbox" name={name} id={`${name}-${id}`} onChange={onChange} checked={isChecked}/>
             <label htmlFor={`${name}-${id}`}>{label}</label>
         </div>
     );

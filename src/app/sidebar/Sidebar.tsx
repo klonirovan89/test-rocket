@@ -5,45 +5,27 @@ import {TypeFilter} from "./filters/TypeFilter";
 import {StarsFilter} from "./filters/StarsFilter";
 import {ReviewsFilter} from "./filters/ReviewsFilter";
 import {PriceFilter} from "./filters/PriceFilter";
+import {countries, stars, types} from "../../consts/constsData";
+import {Filter} from "../App";
 
-export const Sidebar = () => {
+type SidebarProps = {
+    onFilterChange: (type: string, value: any) => void;
+    onFilterApply: () => void;
+    onFilterClear: () => void;
+    currentFilter: Filter;
+}
 
-    const countries = [
-        'Австрия',
-        'Австралия',
-        'Азербайджан',
-        'Албания',
-        'Алжир',
-        'Ангола',
-        'Ангилья',
-        'Андорра',
-        'Антарктида',
-        'Аргентина',
-    ];
-
-    const types = [
-        'Апартаменты',
-        'Отель',
-    ];
-
-    const stars = [
-        '1 звезда',
-        '2 звезды',
-        '3 звезды',
-        '4 звезды',
-        '5 звезд',
-    ];
+export const Sidebar = ({onFilterChange, onFilterApply, onFilterClear, currentFilter}: SidebarProps) => {
 
     return (
         <div>
-            <CountryFilter options={countries} name={"country"} title={"Страна"}/>
-            <TypeFilter options={types} name={"type"} title={"Тип"}/>
-            <StarsFilter options={stars} name={"stars"} title={"Количество звезд"}/>
-            <ReviewsFilter name={"reviews"} title={"Количество отзывов (от)"}/>
-            <PriceFilter name={"price"} title={"Цена"}/>
-
-            <Button text={'Применить фильтр'} color={'purple'}/>
-            <Button text={'Очистить фильтр'} iconId={'cross'} color={'transparent'}/>
+            <CountryFilter value={currentFilter.country} options={countries} type={"country"} title={"Страна"} onChange={onFilterChange}/>
+            <TypeFilter value={currentFilter.type} options={types} type={"type"} title={"Тип"} onChange={onFilterChange}/>
+            <StarsFilter value={currentFilter.stars} options={stars} type={"stars"} title={"Количество звезд"} onChange={onFilterChange}/>
+            <ReviewsFilter value={currentFilter.reviews} type={"reviews"} title={"Количество отзывов (от)"} onChange={onFilterChange}/>
+            <PriceFilter value={currentFilter.price} type={"price"} title={"Цена"} onChange={onFilterChange}/>
+            <Button text={'Применить фильтр'} color={'purple'} onClick={onFilterApply}/>
+            <Button text={'Очистить фильтр'} iconId={'cross'} color={'transparent'} onClick={onFilterClear}/>
         </div>
     );
 };

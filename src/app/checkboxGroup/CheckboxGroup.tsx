@@ -1,6 +1,6 @@
 import React from 'react';
 import {Checkbox} from "../../components/checkbox/Checkbox";
-import {CheckboxType} from "../App";
+import {CheckboxType} from "../../consts/types";
 
 type CheckboxGroupProps = {
     name: string;

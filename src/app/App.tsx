@@ -1,66 +1,85 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {Content} from "./content/Content";
 import {Sidebar} from "./sidebar/Sidebar";
+import {hotels} from "../consts/constsData";
 
 import './App.css';
+import {CheckboxType, HotelsType} from "../consts/types";
 
 function App() {
 
-    const hotels = [
-        {
-            id: 1,
-            name: 'Marina Inn',
-            description: 'Этот 4-звездочный отель расположен в центре города. На его территории есть бассейн с терассой и сауна. Из номеров открывается вид на море.',
-            price: 4600,
-            country: 'Албания',
-            type: 'Отель',
-            stars: 3,
-            isBooked: true,
-            reviewsCount: 23,
-        },
-        {
-            id: 2,
-            name: 'Mondrian Suites',
-            description: 'Этот 2-звездочный отель расположен в центре города.',
-            price: 2600,
-            country: 'Азербайджан',
-            type: 'Апартаменты',
-            stars: 2,
-            isBooked: false,
-            reviewsCount: 4,
-        },
-        {
-            id: 3,
-            name: 'The Ritz',
-            description: 'Этот 3-звездочный отель расположен в центре города.',
-            price: 3500,
-            country: 'Австралия',
-            type: 'Отель',
-            stars: 4,
-            isBooked: false,
-            reviewsCount: 5,
-        },
-    ];
+    const defaultFilter: Filter = {
+        country: [],
+        type: [],
+        stars: [],
+        reviews: null,
+        price: {
+            minValue: null,
+            maxValue: null
+        }
+    };
+
+    const [filter, setFilter] = useState<Filter>(defaultFilter);
+
+    const [hotelsFiltered, setHotelsFiltered] = useState<HotelsType[]>(hotels);
+
+    const onFilterChange = (type: string, value: any) => {
+        setFilter({...filter, [type]: value});
+    }
+
+    const onFilterApply = () => {
+        const filteredHotels = hotels.filter(hotel => {
+
+            if (filter.country.length > 0 && filter.country.findIndex(country => country.label === hotel.country) === -1) return false;
+
+            if (filter.type.length > 0 && filter.type.findIndex(type => type.label === hotel.type) === -1) return false;
+
+            if (filter.stars.length > 0 && filter.stars.findIndex(stars => +stars.label.charAt(0) === hotel.stars) === -1) return false;
+
+            if (filter.reviews && hotel.reviewsCount < filter.reviews ) return false;
+
+            if (
+                (filter.price.minValue && filter.price.minValue > hotel.price)
+                || (filter.price.maxValue && filter.price.maxValue < hotel.price)) {
+                return false;
+            }
+
+            return true;
+        });
+
+        setHotelsFiltered(filteredHotels);
+    }
+
+    const onFilterClear = () => {
+        setFilter(defaultFilter);
+        setHotelsFiltered(hotels);
+    }
 
     return (
         <div className="container">
-            <Sidebar/>
-            <Content hotels={hotels}/>
+            <Sidebar
+                currentFilter={filter}
+                onFilterChange={onFilterChange}
+                onFilterApply={onFilterApply}
+                onFilterClear={onFilterClear}
+            />
+            <Content hotels={hotelsFiltered} itemsPerPage={3}/>
         </div>
     );
 }
 
 export default App;
 
+export type Prices = {
+    minValue: number | null;
+    maxValue: number | null;
+}
 
-export type FilterProps = {
-    name: string,
-    title: string,
-    options?: string[],
-};
-
-export type CheckboxType = {
-    label: string,
-    isChecked: boolean,
+export type Filter = {
+    country: CheckboxType[];
+    type: CheckboxType[];
+    stars: CheckboxType[];
+    reviews: number | null;
+    price: Prices;
 }

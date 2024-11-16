@@ -1,0 +1,72 @@
+.hotel {
+    display: flex;
+    flex-direction: row;
+    max-width: 835px;
+    max-height: 167px;
+    padding: 25px;
+    border: 1px solid #EAEAEA;
+    border-radius: 15px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 600px;
+
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color: #3A3A3A;
+    }
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    h2 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 26px;
+        text-align: left;
+        color: #3A3A3A;
+    }
+}
+
+.rating-location {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        text-align: left;
+        color: #868686;
+    }
+
+    p:last-child {
+        line-height: 18px;
+        color: #3A3A3A;
+    }
+
+    span {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #949494;
+    }
+}
+
+.booking {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 27px;
+    width: 179px;
+}

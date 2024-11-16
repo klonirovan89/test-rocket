@@ -1,30 +1,35 @@
 import React, {useEffect, useState} from 'react';
-import {CheckboxType, FilterProps} from "../../App";
 import {CheckboxGroup} from "../../checkboxGroup/CheckboxGroup";
+import {CheckboxType, FilterProps} from "../../../consts/types";
 
+export const TypeFilter = ({value, options, type, title, onChange}: FilterProps) => {
 
-export const TypeFilter = ({options, name, title}: FilterProps) => {
-
-    const [checkboxOptions, setCheckboxOptions] = useState<CheckboxType[]>([]);
+    const [checkboxOptions, setCheckboxOptions] = useState<CheckboxType[]>(value);
 
     const onCheckboxChange = (value: string) => {
         const checkboxIndex = checkboxOptions.findIndex(option => option.label === value);
-        if (!checkboxIndex) return;
+        if (checkboxIndex === -1) return;
 
         checkboxOptions[checkboxIndex].isChecked = !checkboxOptions[checkboxIndex].isChecked;
         setCheckboxOptions([...checkboxOptions]);
+
+        onChange(type, checkboxOptions.filter(option => option.isChecked));
     };
 
     useEffect(() => {
         if (!options) return;
 
-        setCheckboxOptions(options.map(option => ({label: option, isChecked: false})));
-    }, [options]);
+        setCheckboxOptions(options.map(option => {
+            const isChecked = value.findIndex((value: CheckboxType) => value.label === option) !== -1;
+
+            return {label: option, isChecked: isChecked};
+        }));
+    }, [options, value]);
 
     return (
         <div>
             <h3>{title}</h3>
-            {options && <CheckboxGroup options={checkboxOptions} name={name} onChange={onCheckboxChange}/>}
+            {options && <CheckboxGroup options={checkboxOptions} name={type} onChange={onCheckboxChange}/>}
         </div>
     );
 };

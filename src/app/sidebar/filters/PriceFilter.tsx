@@ -1,13 +1,13 @@
 import React from 'react';
-import {FilterProps} from "../../App";
 import {RangeSlider} from "../../../components/rangeSlider/RangeSlider";
+import {FilterProps} from "../../../consts/types";
 
-export const PriceFilter = ({name, title}: FilterProps) => {
+export const PriceFilter = ({value, title, type, onChange}: FilterProps) => {
 
     return (
         <div>
             <h3>{title}</h3>
-            <RangeSlider name={name}/>
+            <RangeSlider value={value} onChange={(value) => onChange(type, value)}/>
         </div>
     );
 };
