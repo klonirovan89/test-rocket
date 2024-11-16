@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.typeFilter {
+  background-color: #FAFAFA;
+  position: relative;
+  gap: 30px;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 56px;
+    left: 20px;
+    width: 284px;
+    height: 1px;
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    z-index: 100;
+  }
+}

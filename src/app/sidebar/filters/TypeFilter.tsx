@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {CheckboxGroup} from "../../checkboxGroup/CheckboxGroup";
 import {CheckboxType, FilterProps} from "../../../consts/types";
 
+import s from "./Filter.module.scss";
+
 export const TypeFilter = ({value, options, type, title, onChange}: FilterProps) => {
 
     const [checkboxOptions, setCheckboxOptions] = useState<CheckboxType[]>(value);
@@ -27,9 +29,9 @@ export const TypeFilter = ({value, options, type, title, onChange}: FilterProps)
     }, [options, value]);
 
     return (
-        <div>
+        <div className={s.container}>
             <h3>{title}</h3>
-            {options && <CheckboxGroup options={checkboxOptions} name={type} onChange={onCheckboxChange}/>}
+            {options && <CheckboxGroup options={checkboxOptions} name={type} onChange={onCheckboxChange} className={s.typeFilter}/>}
         </div>
     );
 };

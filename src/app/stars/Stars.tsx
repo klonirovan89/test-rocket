@@ -1,7 +1,7 @@
 import React from 'react';
-import {Icon} from "../../components/icon/Icon";
+import {Icon} from "../../components";
 
-import './Stars.css';
+import s from './Stars.module.scss';
 
 type StarsProps = {
     stars: number;
@@ -10,7 +10,7 @@ type StarsProps = {
 export const Stars = ({stars}: StarsProps) => {
 
     return (
-        <div className="stars">
+        <div className={s.stars}>
             {Array.from({ length: 5 }, (_, index) =>
                 index < stars ? (
                     <Icon iconId={'starFilled'} height={'14'} width={'14'} key={index}/>

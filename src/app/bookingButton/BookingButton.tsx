@@ -1,17 +1,25 @@
-import React from 'react';
-import {Button} from "../../components/button/Button";
+import {Button} from "../../components";
+import {useState} from "react";
 
-type BookingButtonProps = {
-    isBooked: boolean;
-}
+export const BookingButton = () => {
 
-export const BookingButton = ({isBooked}: BookingButtonProps) => {
+const [isBooked, setIsBooked] = useState<boolean>(false);
 
     return (
         <div>
             {isBooked
-                ? <Button disabled={true} text={"Забронировано"} iconId={"сheckMark"} size={"small"}/>
-                : <Button text={"Забронировать"} iconId={"calendar"} size={"small"}/>
+                ? <Button
+                    text={"Забронировано"}
+                    iconId={"сheckMark"}
+                    size={"small"}
+                    color={'lightGreen'}
+                    onClick={() => setIsBooked(!isBooked)}/>
+                : <Button
+                    text={"Забронировать"}
+                    iconId={"calendar"}
+                    size={"small"}
+                    color={'lightPurple'}
+                    onClick={() => setIsBooked(!isBooked)}/>
             }
         </div>
     );

@@ -7,7 +7,6 @@ export const hotels = [
         country: 'Албания',
         type: 'Отель',
         stars: 3,
-        isBooked: true,
         reviewsCount: 23,
     },
     {
@@ -18,7 +17,6 @@ export const hotels = [
         country: 'Азербайджан',
         type: 'Апартаменты',
         stars: 2,
-        isBooked: false,
         reviewsCount: 4,
     },
     {
@@ -29,7 +27,6 @@ export const hotels = [
         country: 'Австралия',
         type: 'Отель',
         stars: 4,
-        isBooked: false,
         reviewsCount: 5,
     },
     {
@@ -40,7 +37,6 @@ export const hotels = [
         country: 'Албания',
         type: 'Отель',
         stars: 3,
-        isBooked: true,
         reviewsCount: 23,
     },
     {
@@ -51,7 +47,6 @@ export const hotels = [
         country: 'Азербайджан',
         type: 'Апартаменты',
         stars: 2,
-        isBooked: false,
         reviewsCount: 4,
     },
     {
@@ -62,7 +57,6 @@ export const hotels = [
         country: 'Австралия',
         type: 'Отель',
         stars: 4,
-        isBooked: false,
         reviewsCount: 5,
     },
     {
@@ -73,7 +67,6 @@ export const hotels = [
         country: 'Албания',
         type: 'Отель',
         stars: 3,
-        isBooked: true,
         reviewsCount: 23,
     },
     {
@@ -84,7 +77,6 @@ export const hotels = [
         country: 'Азербайджан',
         type: 'Апартаменты',
         stars: 2,
-        isBooked: false,
         reviewsCount: 4,
     },
     {
@@ -95,7 +87,6 @@ export const hotels = [
         country: 'Австралия',
         type: 'Отель',
         stars: 4,
-        isBooked: false,
         reviewsCount: 5,
     },
     {
@@ -106,7 +97,6 @@ export const hotels = [
         country: 'Албания',
         type: 'Отель',
         stars: 3,
-        isBooked: true,
         reviewsCount: 23,
     },
     {
@@ -117,7 +107,6 @@ export const hotels = [
         country: 'Азербайджан',
         type: 'Апартаменты',
         stars: 2,
-        isBooked: false,
         reviewsCount: 4,
     },
     {
@@ -128,7 +117,6 @@ export const hotels = [
         country: 'Австралия',
         type: 'Отель',
         stars: 4,
-        isBooked: false,
         reviewsCount: 5,
     },
     {
@@ -139,7 +127,6 @@ export const hotels = [
         country: 'Албания',
         type: 'Отель',
         stars: 3,
-        isBooked: true,
         reviewsCount: 23,
     },
     {
@@ -150,7 +137,6 @@ export const hotels = [
         country: 'Азербайджан',
         type: 'Апартаменты',
         stars: 2,
-        isBooked: false,
         reviewsCount: 4,
     },
     {
@@ -161,7 +147,6 @@ export const hotels = [
         country: 'Австралия',
         type: 'Отель',
         stars: 4,
-        isBooked: false,
         reviewsCount: 5,
     },
     {
@@ -172,7 +157,6 @@ export const hotels = [
         country: 'Албания',
         type: 'Отель',
         stars: 3,
-        isBooked: true,
         reviewsCount: 23,
     },
     {
@@ -183,7 +167,6 @@ export const hotels = [
         country: 'Азербайджан',
         type: 'Апартаменты',
         stars: 2,
-        isBooked: false,
         reviewsCount: 4,
     },
     {
@@ -194,7 +177,6 @@ export const hotels = [
         country: 'Австралия',
         type: 'Отель',
         stars: 4,
-        isBooked: false,
         reviewsCount: 5,
     },
     {
@@ -205,7 +187,6 @@ export const hotels = [
         country: 'Албания',
         type: 'Отель',
         stars: 3,
-        isBooked: true,
         reviewsCount: 23,
     },
     {
@@ -216,7 +197,6 @@ export const hotels = [
         country: 'Азербайджан',
         type: 'Апартаменты',
         stars: 2,
-        isBooked: false,
         reviewsCount: 4,
     },
     {
@@ -227,7 +207,6 @@ export const hotels = [
         country: 'Австралия',
         type: 'Отель',
         stars: 4,
-        isBooked: false,
         reviewsCount: 5,
     },
 ];

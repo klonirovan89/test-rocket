@@ -1,5 +1,9 @@
-import React from 'react';
 import {Icon} from "../icon/Icon";
+
+import s from "./Button.module.scss";
+import {clsx} from "clsx";
+
+
 
 type ButtonProps = {
     disabled?: boolean;
@@ -10,11 +14,11 @@ type ButtonProps = {
     onClick?: () => void;
 }
 
-export const Button = ({disabled, text, iconId, size = '', color = 'transparent', onClick}: ButtonProps) => {
+export const Button = ({disabled, text, iconId, size, color = 'transparent', onClick}: ButtonProps) => {
 
     return (
         <div>
-            <button onClick={onClick} disabled={disabled} className={`button ${size} ${color}`}>
+            <button onClick={onClick} disabled={disabled} className={clsx(s.button, size && s[size], color && s[color])}>
                 {iconId && <Icon iconId={iconId} height={'16'} width={'16'}/>}
                 <span>{text}</span>
             </button>

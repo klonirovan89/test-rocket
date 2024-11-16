@@ -3,9 +3,9 @@ import React, {useState} from 'react';
 import {Content} from "./content/Content";
 import {Sidebar} from "./sidebar/Sidebar";
 import {hotels} from "../consts/constsData";
+import {Filter, HotelsType} from "../consts/types";
 
-import './App.css';
-import {CheckboxType, HotelsType} from "../consts/types";
+import s from './App.module.scss';
 
 function App() {
 
@@ -57,29 +57,16 @@ function App() {
     }
 
     return (
-        <div className="container">
-            <Sidebar
-                currentFilter={filter}
-                onFilterChange={onFilterChange}
-                onFilterApply={onFilterApply}
-                onFilterClear={onFilterClear}
-            />
-            <Content hotels={hotelsFiltered} itemsPerPage={3}/>
-        </div>
+            <div className={s.container}>
+                    <Sidebar
+                        currentFilter={filter}
+                        onFilterChange={onFilterChange}
+                        onFilterApply={onFilterApply}
+                        onFilterClear={onFilterClear}
+                    />
+                    <Content hotels={hotelsFiltered} itemsPerPage={3}/>
+            </div>
     );
 }
 
 export default App;
-
-export type Prices = {
-    minValue: number | null;
-    maxValue: number | null;
-}
-
-export type Filter = {
-    country: CheckboxType[];
-    type: CheckboxType[];
-    stars: CheckboxType[];
-    reviews: number | null;
-    price: Prices;
-}

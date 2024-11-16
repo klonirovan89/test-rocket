@@ -1,11 +1,10 @@
-import React from 'react';
 import {Stars} from "../stars/Stars";
 import {Price} from "../price/Price";
 import {BookingButton} from "../bookingButton/BookingButton";
-import {Icon} from "../../components/icon/Icon";
+import {Icon} from "../../components";
 import {HotelsType} from "../../consts/types";
 
-import './Hotel.css';
+import s from './Hotel.module.scss';
 
 type HotelProps = {
     hotel: HotelsType;
@@ -14,11 +13,11 @@ type HotelProps = {
 export const Hotel = ({hotel}: HotelProps) => {
 
     return (
-        <div className="hotel">
-            <div className="info">
-                <div className="details">
+        <div className={s.hotel}>
+            <div className={s.info}>
+                <div className={s.details}>
                     <h2>{hotel.name}</h2>
-                    <div className="rating-location">
+                    <div className={s.rating_location}>
                         <Stars stars={hotel.stars}/>
                         <p>{hotel.type}</p>
                         <span></span>
@@ -29,9 +28,9 @@ export const Hotel = ({hotel}: HotelProps) => {
                 </div>
                 <p>{hotel.description}</p>
             </div>
-            <div className="booking">
+            <div className={s.booking}>
                 <Price price={hotel.price}/>
-                <BookingButton isBooked={hotel.isBooked}/>
+                <BookingButton/>
             </div>
         </div>
     );

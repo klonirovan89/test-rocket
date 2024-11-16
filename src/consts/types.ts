@@ -6,7 +6,6 @@ export type HotelsType = {
     country: string;
     type: string;
     stars: number;
-    isBooked: boolean;
     reviewsCount: number;
 }
 
@@ -21,4 +20,17 @@ export type FilterProps = {
 export type CheckboxType = {
     label: string,
     isChecked: boolean,
+}
+
+export type Prices = {
+    minValue: number | null;
+    maxValue: number | null;
+}
+
+export type Filter = {
+    country: CheckboxType[];
+    type: CheckboxType[];
+    stars: CheckboxType[];
+    reviews: number | null;
+    price: Prices;
 }

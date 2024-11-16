@@ -1,0 +1,10 @@
+.searchableDropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.typeFilter {
+  max-height: 202px;
+  overflow-y: auto;
+}

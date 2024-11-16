@@ -1,6 +1,8 @@
 import React from 'react';
-import {Input} from "../../../components/input/Input";
+import {Input} from "../../../components";
 import {FilterProps} from "../../../consts/types";
+
+import s from "./Filter.module.scss";
 
 export const ReviewsFilter = ({value, type, title, onChange}: FilterProps) => {
 
@@ -13,7 +15,7 @@ export const ReviewsFilter = ({value, type, title, onChange}: FilterProps) => {
     }
 
     return (
-        <div>
+        <div className={s.container}>
             <h3>{title}</h3>
             <Input
                 value={value || ''}

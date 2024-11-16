@@ -1,7 +1,9 @@
 import {useEffect, useState} from 'react';
 import {CheckboxGroup} from "../checkboxGroup/CheckboxGroup";
-import {Search} from "../../components/search/Search";
+import {Search} from "../../components";
 import {CheckboxType} from "../../consts/types";
+
+import s from "./SearchableDropdown.module.scss";
 
 type SearchableDropdownProps = {
     value: CheckboxType[];
@@ -37,12 +39,9 @@ export const SearchableDropdown = ({value, options, name, onChange}: SearchableD
     }, [options, value]);
 
     return (
-        <div>
+        <div className={s.searchableDropdown}>
             <Search onSearch={setSearch} />
-
-            <div className="options">
-                <CheckboxGroup options={filteredOptions} name={name} onChange={onCheckboxChange}/>
-            </div>
+            <CheckboxGroup options={filteredOptions} name={name} onChange={onCheckboxChange} className={s.typeFilter}/>
         </div>
     );
 };

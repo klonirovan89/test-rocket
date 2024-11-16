@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import MultiRangeSlider, {ChangeResult} from "multi-range-slider-react";
 import {Input} from "../input/Input";
-import {Prices} from "../../app/App";
+import {Prices} from "../../consts/types";
+
+import s from './RangeSlider.module.scss';
 
 type RangeSliderProps = {
     value: Prices;
@@ -43,30 +45,33 @@ export const RangeSlider = ({value, onChange}: RangeSliderProps) => {
     }, [value]);
 
     return (
-        <div>
-            <Input
+        <div className={s.container}>
+            <div className={s.rangeInput}>
+                <Input
                 placeholder={`от ${defaultValue.minValue} ₽`}
                 name={'minValue'}
                 onChange={handleMinValueChange}
-                value={minValue !== null ? minValue : ''}
+                value={minValue ?? ''}
             />
-            -
-            <Input
-                placeholder={`от ${defaultValue.maxValue} ₽`}
-                name={'maxValue'}
-                onChange={handleMaxValueChange}
-                value={maxValue || ''}
-            />
+                <span></span>
+                <Input
+                    placeholder={`от ${defaultValue.maxValue} ₽`}
+                    name={'maxValue'}
+                    onChange={handleMaxValueChange}
+                    value={maxValue ?? ''}
+                />
+            </div>
             <MultiRangeSlider
                 min={defaultValue.minValue}
                 max={defaultValue.maxValue}
                 step={100}
-                minValue={minValue || defaultValue.minValue}
-                maxValue={maxValue || defaultValue.maxValue}
+                minValue={minValue ?? defaultValue.minValue}
+                maxValue={maxValue ?? defaultValue.maxValue}
                 label={false}
                 ruler={false}
-                className={'custom-range-slider'}
                 onChange={handleRangeSliderChange}
+                barInnerColor={'red'}
+                className={s.customRangeSlider}
             />
         </div>
     );

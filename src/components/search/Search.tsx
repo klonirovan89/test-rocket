@@ -17,7 +17,6 @@ export const Search = ({onSearch}: SearchProps) => {
                 name={'search'}
                 placeholder={'Поиск страны'}
                 icon={'search'}
-                isClearable={true}
                 onChange={onInputChange}
             />
         </div>
