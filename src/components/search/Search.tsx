@@ -6,7 +6,6 @@ type SearchProps = {
 }
 
 export const Search = ({onSearch}: SearchProps) => {
-let value = '';
     const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         onSearch(event.currentTarget.value);
     };
