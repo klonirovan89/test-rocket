@@ -1,9 +1,7 @@
 import {Icon} from "../icon/Icon";
-
-import s from "./Button.module.scss";
 import {clsx} from "clsx";
 
-
+import s from "./Button.module.scss";
 
 type ButtonProps = {
     disabled?: boolean;

@@ -37,11 +37,11 @@ function App() {
 
             if (filter.stars.length > 0 && filter.stars.findIndex(stars => +stars.label.charAt(0) === hotel.stars) === -1) return false;
 
-            if (filter.reviews && hotel.reviewsCount < filter.reviews ) return false;
+            if (filter.reviews && hotel.reviews_amount < filter.reviews ) return false;
 
             if (
-                (filter.price.minValue && filter.price.minValue > hotel.price)
-                || (filter.price.maxValue && filter.price.maxValue < hotel.price)) {
+                (filter.price.minValue && filter.price.minValue > hotel.min_price)
+                || (filter.price.maxValue && filter.price.maxValue < hotel.min_price)) {
                 return false;
             }
 
@@ -64,7 +64,7 @@ function App() {
                         onFilterApply={onFilterApply}
                         onFilterClear={onFilterClear}
                     />
-                    <Content hotels={hotelsFiltered} itemsPerPage={3}/>
+                    <Content hotels={hotelsFiltered} itemsPerPage={3} onFilterClear={onFilterClear}/>
             </div>
     );
 }

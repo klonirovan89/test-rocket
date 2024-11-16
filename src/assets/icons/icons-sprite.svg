@@ -9,7 +9,7 @@
     </symbol>
 
     <symbol id="magnifier" viewBox="0 0 17 17">
-            <circle cx="7" cy="7" r="6.25" stroke="black" stroke-width="1.5"/>
+            <circle cx="7" cy="7" r="6.25" stroke="black" stroke-width="1.5" fill="none"/>
             <rect x="10.5" y="11.8" width="1.5" height="7" rx="0.75" transform="rotate(-45 10.5 11.8)" fill="black"/>
     </symbol>
 
@@ -18,8 +18,8 @@
     </symbol>
 
     <symbol id="cross" viewBox="0 0 11 11">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.60087 10.1213L0 1.52043L1.52043 0L10.1213 8.60087L8.60087 10.1213Z" fill="#3A3A3A"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.1213 1.52043L1.52043 10.1213L0 8.60087L8.60087 0L10.1213 1.52043Z" fill="#3A3A3A"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.60087 10.1213L0 1.52043L1.52043 0L10.1213 8.60087L8.60087 10.1213Z"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.1213 1.52043L1.52043 10.1213L0 8.60087L8.60087 0L10.1213 1.52043Z"/>
     </symbol>
 
     <symbol id="mapMarker" viewBox="0 0 10 15" fill="none">

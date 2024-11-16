@@ -15,8 +15,6 @@
       background-color: #C4C4C4;
     }
   }
-
-
 }
 
 
@@ -34,4 +32,16 @@
   user-select: none;
 
 
+}
+
+.multi-range-slider .bar-inner {
+  /* background-color: lime; */
+  /* display: flex; */
+  flex-grow: 1;
+  /* flex-shrink: 1; */
+  justify-content: space-between;
+  /* position: relative; */
+  /* border: solid 1px black; */
+  justify-content: space-between;
+  /* box-shadow: inset 0px 0px 5px black; */
 }

@@ -48,14 +48,14 @@ export const RangeSlider = ({value, onChange}: RangeSliderProps) => {
         <div className={s.container}>
             <div className={s.rangeInput}>
                 <Input
-                placeholder={`от ${defaultValue.minValue} ₽`}
+                placeholder={`от ${defaultValue.minValue.toLocaleString('ru-RU')} ₽`}
                 name={'minValue'}
                 onChange={handleMinValueChange}
                 value={minValue ?? ''}
             />
                 <span></span>
                 <Input
-                    placeholder={`от ${defaultValue.maxValue} ₽`}
+                    placeholder={`от ${defaultValue.maxValue.toLocaleString('ru-RU')} ₽`}
                     name={'maxValue'}
                     onChange={handleMaxValueChange}
                     value={maxValue ?? ''}
@@ -70,7 +70,11 @@ export const RangeSlider = ({value, onChange}: RangeSliderProps) => {
                 label={false}
                 ruler={false}
                 onChange={handleRangeSliderChange}
-                barInnerColor={'red'}
+                barInnerColor={'#00BB6D'}
+                barLeftColor={'#EAEAEA'}
+                barRightColor={'#EAEAEA'}
+                thumbLeftColor={'#00BB6D'}
+                thumbRightColor={'#00BB6D'}
                 className={s.customRangeSlider}
             />
         </div>

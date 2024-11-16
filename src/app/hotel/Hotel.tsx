@@ -12,6 +12,8 @@ type HotelProps = {
 
 export const Hotel = ({hotel}: HotelProps) => {
 
+    const price = Math.round(hotel.min_price).toLocaleString('ru-RU')
+
     return (
         <div className={s.hotel}>
             <div className={s.info}>
@@ -21,7 +23,7 @@ export const Hotel = ({hotel}: HotelProps) => {
                         <Stars stars={hotel.stars}/>
                         <p>{hotel.type}</p>
                         <span></span>
-                        <p>{hotel.reviewsCount} отзывов</p>
+                        <p>{hotel.reviews_amount} отзывов</p>
                         <Icon iconId={'mapMarker'} height={'13'} width={'9'}/>
                         <p>{hotel.country}</p>
                     </div>
@@ -29,7 +31,7 @@ export const Hotel = ({hotel}: HotelProps) => {
                 <p>{hotel.description}</p>
             </div>
             <div className={s.booking}>
-                <Price price={hotel.price}/>
+                <Price price={price}/>
                 <BookingButton/>
             </div>
         </div>

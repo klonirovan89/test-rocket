@@ -1,7 +1,7 @@
 import s from './Price.module.scss';
 
 type PriceProps = {
-    price: number;
+    price: string;
 }
 
 export const Price = ({price}: PriceProps) => {

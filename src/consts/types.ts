@@ -1,12 +1,16 @@
 export type HotelsType = {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    country: string;
-    type: string;
-    stars: number;
-    reviewsCount: number;
+    name: string,
+    country: string,
+    address: string,
+    stars: number,
+    type: string,
+    description: string,
+    services: string[],
+    min_price: number,
+    currency: string,
+    rating: number,
+    reviews_amount: number,
+    last_review: string
 }
 
 export type FilterProps = {
