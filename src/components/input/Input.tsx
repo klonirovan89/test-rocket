@@ -13,9 +13,6 @@ type InputProps = {
 
 export const Input = ({placeholder, name, icon, onChange, value}: InputProps) => {
 
-
-    console.log(name)
-
     return (
         <div className={s.container}>
             {icon && <Icon iconId={'magnifier'} height={'17'} width={'17'} className={s.magnifier}/>}

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Hotel} from "../hotel/Hotel";
 import {HotelsType} from "../../consts/types";
 import ReactPaginate from "react-paginate";
@@ -25,6 +25,12 @@ export const Content = ({hotels, itemsPerPage, onFilterClear}: ContentProps) => 
 
         setItemOffset(newOffset);
     };
+
+    useEffect(() => {
+        if (totalPages === 1 && itemOffset !== 0) {
+            setItemOffset(0);
+        }
+    }, [totalPages, itemOffset]);
 
     return (
         <div>
