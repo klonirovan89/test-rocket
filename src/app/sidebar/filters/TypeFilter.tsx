@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {CheckboxGroup} from "../../checkboxGroup/CheckboxGroup";
 import {CheckboxType, FilterProps} from "../../../consts/types";
 

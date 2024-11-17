@@ -1,7 +1,7 @@
-import React from 'react';
-import s from "./Input.module.scss";
 import {Icon} from "../icon/Icon";
 import {clsx} from "clsx";
+
+import s from "./Input.module.scss";
 
 type InputProps = {
     placeholder: string;

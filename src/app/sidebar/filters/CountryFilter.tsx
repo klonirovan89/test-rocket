@@ -14,8 +14,7 @@ export const CountryFilter = ({value, options, type, title, onChange}: FilterPro
                     options={options}
                     name={type}
                     onChange={(value) => onChange(type, value)}
-                />
-            }
+                />}
         </div>
     );
 };

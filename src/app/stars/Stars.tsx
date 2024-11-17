@@ -1,4 +1,3 @@
-import React from 'react';
 import {Icon} from "../../components";
 
 import s from './Stars.module.scss';

@@ -1,4 +1,6 @@
-export const hotels = [
+import {HotelsType} from "./types";
+
+export const hotels: HotelsType[] = [
         {
             name: "Marina Inn",
             country: "Греция",
@@ -141,7 +143,7 @@ export const hotels = [
     },
 ];
 
-export const countries = [
+export const countries: string[]  = [
     'Австрия',
     'Азербайджан',
     'Албания',
@@ -187,12 +189,12 @@ export const countries = [
     "Фиджи"
 ];
 
-export const types = [
+export const types: string[] = [
     'Апартаменты',
     'Отель',
 ];
 
-export const stars = [
+export const stars: string[] = [
     '1 звезда',
     '2 звезды',
     '3 звезды',

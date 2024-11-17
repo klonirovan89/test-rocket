@@ -1,5 +1,12 @@
 import iconSprite from '../../assets/icons/icons-sprite.svg'
 
+type IconPropsType = {
+  height: string
+  iconId: string
+  width: string
+  className?: string
+}
+
 export const Icon = ({height, iconId, width, className}: IconPropsType) => {
 
   return (
@@ -9,9 +16,4 @@ export const Icon = ({height, iconId, width, className}: IconPropsType) => {
   )
 }
 
-type IconPropsType = {
-  height: string
-  iconId: string
-  width: string
-  className?: string
-}
+

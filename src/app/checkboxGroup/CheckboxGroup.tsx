@@ -1,9 +1,10 @@
 import React from 'react';
 import {Checkbox} from "../../components";
 import {CheckboxType} from "../../consts/types";
+import {clsx} from "clsx";
 
 import s from "./CheckboxGroup.module.scss";
-import {clsx} from "clsx";
+
 
 type CheckboxGroupProps = {
     name: string;
