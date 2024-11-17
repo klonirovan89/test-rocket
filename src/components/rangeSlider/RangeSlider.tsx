@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {Input} from "../input/Input";
-import {Prices} from "../../consts/types";
+import React, { useEffect, useState } from 'react';
+import { Input } from "../input/Input";
+import { Prices } from "../../consts/types";
 import * as RadixSlider from '@radix-ui/react-slider'
 
 import s from './RangeSlider.module.scss';
@@ -10,21 +10,53 @@ type RangeSliderProps = {
     onChange: (value: Prices) => void;
 }
 
-export const RangeSlider = ({value, onChange}: RangeSliderProps) => {
+export const RangeSlider = ({ value, onChange }: RangeSliderProps) => {
     const [minValue, setMinValue] = useState(value[0]);
     const [maxValue, setMaxValue] = useState(value[1]);
 
     const defaultValue = [0, 100500];
-    const handleMinValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMinValue(+event.currentTarget.value);
 
-        onChange([+event.currentTarget.value, maxValue]);
+    const handleMinValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newMinValue = +event.currentTarget.value;
+        if (isNaN(newMinValue)) {
+            return;
+        }
+
+        setMinValue(newMinValue);
+
+        if (newMinValue > maxValue) {
+            setMaxValue(newMinValue);
+            onChange([newMinValue, newMinValue]);
+        } else {
+            onChange([newMinValue, maxValue]);
+        }
+
+        if (newMinValue !== value[0]) {
+            setMaxValue(defaultValue[1]);
+            onChange([newMinValue, defaultValue[1]]);
+        }
     }
 
     const handleMaxValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMaxValue(+event.currentTarget.value);
+        const newMaxValue = +event.currentTarget.value;
+        if (isNaN(newMaxValue)) {
+            return;
+        }
 
-        onChange([minValue, +event.currentTarget.value]);
+        setMaxValue(newMaxValue);
+
+        if (newMaxValue < minValue) {
+            setMinValue(newMaxValue);
+            onChange([newMaxValue, newMaxValue]);
+        } else {
+            onChange([minValue, newMaxValue]);
+        }
+
+
+        if (newMaxValue !== value[1]) {
+            setMinValue(defaultValue[0]);
+            onChange([defaultValue[0], newMaxValue]);
+        }
     }
 
     const handleRangeSliderChange = (event: number[]) => {
@@ -43,14 +75,14 @@ export const RangeSlider = ({value, onChange}: RangeSliderProps) => {
         <div className={s.container}>
             <div className={s.rangeInput}>
                 <Input
-                placeholder={`от ${defaultValue[0].toLocaleString('ru-RU')} ₽`}
-                name={'minValue'}
-                onChange={handleMinValueChange}
-                value={minValue ?? ''}
-            />
+                    placeholder={`от ${defaultValue[0].toLocaleString('ru-RU')} ₽`}
+                    name={'minValue'}
+                    onChange={handleMinValueChange}
+                    value={minValue ?? ''}
+                />
                 <span></span>
                 <Input
-                    placeholder={`от ${defaultValue[1].toLocaleString('ru-RU')} ₽`}
+                    placeholder={`до ${defaultValue[1].toLocaleString('ru-RU')} ₽`}
                     name={'maxValue'}
                     onChange={handleMaxValueChange}
                     value={maxValue ?? ''}
