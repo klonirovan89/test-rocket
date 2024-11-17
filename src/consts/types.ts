@@ -26,10 +26,7 @@ export type CheckboxType = {
     isChecked: boolean,
 }
 
-export type Prices = {
-    minValue: number | null;
-    maxValue: number | null;
-}
+export type Prices = number[];
 
 export type Filter = {
     country: CheckboxType[];

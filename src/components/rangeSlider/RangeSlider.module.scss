@@ -1,7 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 31px;
+  width: 100%;
 
   .rangeInput {
     display: flex;
@@ -15,33 +16,69 @@
       background-color: #C4C4C4;
     }
   }
-}
 
+  .root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 2px;
 
-.customRangeSlider {
-  display: flex;
-  position: relative;
-  border: none ;
-  border-radius: 10px;
-  padding: 20px 10px;
-  box-shadow: none ;
-  flex-direction: column;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+    .track {
+      position: relative;
+      flex-grow: 1;
+      height: 2px;
+      background-color: #EAEAEA;
 
+      .range {
+        position: absolute;
+        height: 100%;
+        background-color: #00BB6D;
+      }
+    }
 
-}
+    .thumb {
+      position: absolute;
+      top: 50%;
+      width: 22px;
+      height: 22px;
+      background-color: #fff;
+      border: 2px solid #00BB6D;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: 0.2s all;
 
-.multi-range-slider .bar-inner {
-  /* background-color: lime; */
-  /* display: flex; */
-  flex-grow: 1;
-  /* flex-shrink: 1; */
-  justify-content: space-between;
-  /* position: relative; */
-  /* border: solid 1px black; */
-  justify-content: space-between;
-  /* box-shadow: inset 0px 0px 5px black; */
+      span {
+        position: absolute;
+        content: '';
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 200%;
+        left: 50%;
+        width: 60px;
+        height: 25px;
+        border: 2px solid #C4C4C4;
+        transform: translate(-50%, -50%);
+        font-size: 14px;
+        color: #C4C4C4;
+        transition: 0.2s all;
+        opacity: 0;
+        text-align: center;
+      }
+
+      &:hover {
+        box-shadow: 0 0 6px #6A53F5;
+
+        span {
+          opacity: 1;
+        }
+      }
+
+      &:active {
+        box-shadow: 0 0 10px #6A53F5;
+      }
+    }
+  }
 }

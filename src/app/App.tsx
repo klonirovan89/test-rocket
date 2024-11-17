@@ -14,11 +14,8 @@ function App() {
         type: [],
         stars: [],
         reviews: null,
-        price: {
-            minValue: null,
-            maxValue: null
-        }
-    };
+        price: []
+};
 
     const [filter, setFilter] = useState<Filter>(defaultFilter);
 
@@ -40,8 +37,8 @@ function App() {
             if (filter.reviews && hotel.reviews_amount < filter.reviews ) return false;
 
             if (
-                (filter.price.minValue && filter.price.minValue > hotel.min_price)
-                || (filter.price.maxValue && filter.price.maxValue < hotel.min_price)) {
+                (filter.price[0] && filter.price[0] > hotel.min_price)
+                || (filter.price[1] && filter.price[1] < hotel.min_price)) {
                 return false;
             }
 
